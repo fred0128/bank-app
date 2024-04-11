@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>My App</title>
+    <script src="https://kit.fontawesome.com/8a20bfb882.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+    <div class="container">
+        <header>
+            <div class="left">
+                <img src="profile-image-2.png" alt="">
+                <div class="text">
+                    <p class="primary"><b>Salam, username.</b></p>
+                    <p class="secondary">Sizi yenidən görmək xoşdur!</p>
+                </div>
+            </div>
+            <div class="right">
+                <div class="item chat">☻</div>
+                <div class="item hide-balance">☻</div>
+                <div class="item notification">☻</div>
+            </div>
+        </header>
+
+
+        <div class="top-nav">
+            <ul>
+                <li id="active">Kartlar</li>
+                <li id="notactive">Hesablar</li>
+                <li id="notactive">Kreditlər</li>
+                <li id="notactive">Depozitlər</li>
+            </ul>
+        </div>
+
+
+        <div class="card-container">
+            <div class="cards">
+                <div class="card-item card4" id="mycard1">
+                    <div class="card-top">
+                        <div class="text">
+                            <div class="card-manufacturer-name">Mastercard</div>
+                            <div class="card-balance">426.93 ₼</div>
+                        </div>
+                        <div class="card-manufacturer">
+                            <img src="Mastercard_2019_logo.svg.png" alt="">
+                        </div>
+                    </div>
+                    <div class="card-informations">
+                        <div class="card-informations-top">
+                            <div class="card-number item">••4198</div>
+                            <div class="card-date item">12/26</div>
+                        </div>
+                        <div class="cardholder-name">Farid Humbatov</div>
+                    </div>
+                </div>
+
+                <div class="card-item card1" id="mycard2">
+                    <div class="card-top">
+                        <div class="text">
+                            <div class="card-manufacturer-name">VISA</div>
+                            <div class="card-balance">2339.22 ₼</div>
+                        </div>
+                        <div class="card-manufacturer">
+                            <img src="visa-brandmark-blue-1960x622.png" alt="">
+                        </div>
+                    </div>
+                    <div class="card-informations">
+                        <div class="card-informations-top">
+                            <div class="card-number item">••8667</div>
+                            <div class="card-date item">11/28</div>
+                        </div>
+                        <div class="cardholder-name">Farid Humbatov</div>
+                    </div>
+                </div>
+
+                <div class="card-item card3" id="mycard3">
+                    <div class="card-top">
+                        <div class="text">
+                            <div class="card-manufacturer-name">VISA</div>
+                            <div class="card-balance">202.80 ₼</div>
+                        </div>
+                        <div class="card-manufacturer">
+                            <img src="visa-brandmark-blue-1960x622.png" alt="">
+                        </div>
+                    </div>
+                    <div class="card-informations">
+                        <div class="card-informations-top">
+                            <div class="card-number item">••1227</div>
+                            <div class="card-date item">04/27</div>
+                        </div>
+                        <div class="cardholder-name">Farid Humbatov</div>
+                    </div>
+                </div>
+
+                <div class="card-item card2" id="mycard4">
+                    <div class="card-top">
+                        <div class="text">
+                            <div class="card-manufacturer-name">Mastercard</div>
+                            <div class="card-balance">21.00 ₼</div>
+                        </div>
+                        <div class="card-manufacturer">
+                            <img src="Mastercard_2019_logo.svg.png" alt="">
+                        </div>
+                    </div>
+                    <div class="card-informations">
+                        <div class="card-informations-top">
+                            <div class="card-number item">••6492</div>
+                            <div class="card-date item">8/28</div>
+                        </div>
+                        <div class="cardholder-name">Farid Humbatov</div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="dot-container">
+            <div class="dots">
+                <a href="#mycard1" id="active"></a>
+                <a href="#mycard2" id="notactive"></a>
+                <a href="#mycard3" id="notactive"></a>
+                <a href="#mycard4" id="notactive"></a>
+            </div>
+            <p>Hamısı ></p>
+        </div>
+
+    </div>
+
+
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const dots = document.querySelectorAll('.dots a');
+            const cards = document.querySelectorAll('.card-item');
+
+            function showThreeDots(activeDotIndex) {
+                dots.forEach((dot, index) => {
+                    if (index === activeDotIndex || index === activeDotIndex - 1 || index === activeDotIndex + 1) {
+                        dot.style.display = 'inline-block';
+                    } else {
+                        dot.style.display = 'none';
+                    }
+                });
+            }
+            // Dot'lara tıklama olayı ekle
+            dots.forEach(dot => {
+                dot.addEventListener('click', function (event) {
+                    event.preventDefault();
+
+                    // Tıklanan dot'un href attribute'undan ilgili card'ın id'sini al
+                    const cardId = this.getAttribute('href').slice(1);
+                    // Ilgili card'ı ekranda göstermek için scrollIntoView() metodunu kullan
+                    document.getElementById(cardId).scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
+                });
+            });
+
+            // Kartların ekranın görünür kısmında olduğunda dot'un id'sini değiştir
+            cards.forEach(card => {
+                const observer = new IntersectionObserver(entries => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            const cardId = '#' + entry.target.id;
+                            // Kartın id'si ile eşleşen dot'u bul
+                            const dot = document.querySelector(`.dots a[href="${cardId}"]`);
+                            // Dot'un id'sini "active" olarak ayarla
+                            if (dot) {
+                                dots.forEach(dot => {
+                                    dot.setAttribute('id', 'notactive');
+                                });
+                                dot.setAttribute('id', 'active');
+                            }
+                        }
+                    });
+                }, { threshold: 0.5 });
+
+                observer.observe(card);
+            });
+        });
+    </script>
+
+</body>
+
+</html>

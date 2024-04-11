@@ -1,0 +1,302 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    user-select: none;
+    -webkit-user-drag: none;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    background-color: #eee;
+}
+
+.container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    width: 100%;
+    height: 8vh;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    margin: 1.2vh 0;
+}
+
+header .left {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+header .left img {
+    height: 80%;
+    background-color: rgb(152, 152, 255);
+    border-radius: 50%;
+}
+
+header .left .text .primary {
+    font-size: 0.9em;
+}
+
+header .left .text .secondary {
+    font-size: 0.7em;
+    opacity: 0.6;
+    letter-spacing: 0.5px;
+}
+
+header .right {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 30px 0 0;
+    gap: 5px;
+}
+
+header .right .item {
+    height: 60%;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+}
+
+header .right .chat {
+    background-color: green;
+}
+
+header .right .item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 15px;
+}
+
+header .right .hide-balance {
+    background-color: red;
+}
+
+header .right .notification {
+    background-color: red;
+}
+
+
+
+.top-nav {
+    height: 4vh;
+    padding: 0 20px;
+}
+
+.top-nav ul {
+    display: flex;
+    justify-content: space-around;
+}
+
+.top-nav ul li {
+    list-style: none;
+    padding: 0 12px;
+}
+
+.top-nav ul li:is(#active) {
+    border-bottom: 2px solid blue;
+}
+
+
+
+.card-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.cards {
+    width: 100%;
+    height: 25vh;
+    align-self: center;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 10px 40% 10px 40%;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+    scroll-padding: 0 20px;
+}
+
+.cards::-webkit-scrollbar {
+    display: none;
+}
+
+.card-item {
+    background-color: blue;
+    height: 90%;
+    aspect-ratio: 85.60/53.98;
+    scroll-snap-align: center;
+    border-radius: 2.88mm;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: #fff;
+    padding: 10px;
+    box-shadow: 5px 5px 10px #00000080;
+    margin-top: -30px;
+}
+
+.dot-container {
+    align-self: center;
+    display: flex;
+    background-color: #fff;
+    align-items: center;
+    gap: 15px;
+    padding: 0 15px;
+    border-radius: 6px;
+    margin-top: -10px;
+}
+
+.dots {
+    display: flex;
+    justify-content: space-around;
+    gap: 6px;
+    width: fit-content;
+    align-self: center;
+    height: 4vh;
+    color: #000;
+    align-items: center;
+}
+
+.dots p {
+    text-wrap: nowrap;
+}
+
+.dots a {
+    height: 6px;
+    aspect-ratio: 1/1;
+    background-color: #aaa;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    text-decoration: none;
+    color: #fff;
+    transition: 0.5s all ease-in-out;
+    transition: 0s border-radius ease-in-out;
+}
+
+.dots a:is(#active) {
+    background-color: #000;
+    min-width: 20px;
+    height: 6px;
+    border-radius: 3px;
+}
+
+.card-manufacturer {
+    width: fit-content;
+    display: flex;
+    padding: 0 10px 0 0;
+}
+
+.card-manufacturer img {
+    height: 3vh;
+    filter: brightness(100);
+}
+
+#mycard1 .card-manufacturer img {
+    filter: brightness(1);
+    height: 3.8vh;
+}
+
+#mycard4 .card-manufacturer img {
+    filter: brightness(1);
+    height: 3.8vh;
+}
+
+.cards .card1 {
+    background: url(pngtree-hexagonal-abstract-background-with-a-black-textured-surface-image_13704307.png);
+    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.cards .card2 {
+    background: url(pngtree-elegant-black-and-white-texture-background-with-silver-glitter-for-a-image_13624228.png);
+    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+
+}
+
+.cards .card3 {
+    background: url(map-of-the-world-2401458_640.jpg);
+    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-blend-mode: darken;
+}
+
+.cards .card4 {
+    background: url(64dc6fbee79a172c3685dfc4_011.jpg);
+    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-blend-mode: darken;
+}
+
+.cards .card3 .card-informations-top .item {
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 5vh;
+    width: 100%;
+    padding: 0 10px;
+}
+
+.card-top .text {
+    display: flex;
+    flex-direction: column;
+}
+
+.card-top .text .card-manufacturer-name {
+    font-size: 1.5vh;
+}
+
+.card-informations-top {
+    display: flex;
+    gap: 10px;
+}
+
+.card-informations-top .item {
+    background-color: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(4px);
+    color: #ffffff;
+    border-radius: 6px;
+    padding: 2px 8px;
+}
+
+.card-top .text .card-balance {
+    font-size: 2vh;
+}
+
+.card-number {
+    font-size: 2vh;
+}
+
+.card-informations {
+    margin-top: 4vh;
+}
+
+.card-item .cardholder-name {
+    font-size: 1.8vh;
+    margin-top: 1.2vh;
+    letter-spacing: 1.2px;
+    margin-bottom: 1.2vh;
+}
